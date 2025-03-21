@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center pt-20 pb-16 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex flex-col justify-center pt-20 pb-16 overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full filter blur-[120px]" />
@@ -58,14 +58,14 @@ const Hero: React.FC = () => {
           <div className="animate-on-scroll opacity-0 flex flex-col sm:flex-row justify-center gap-4 mb-16">
             <a 
               href="#contact" 
-              className="px-8 py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-full transition-all shadow-glow flex items-center justify-center group"
+              className="px-8 py-3 bg-primary hover:bg-primary/80 text-white font-medium rounded-full transition-all shadow-glow hover:shadow-[0_0_20px_5px_rgba(124,58,237,0.4)] flex items-center justify-center group transform hover:-translate-y-1"
             >
               Get Your Free Consultation
               <ArrowRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
             </a>
             <a 
               href="#services" 
-              className="px-8 py-3 bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-sm text-white font-medium rounded-full transition-all flex items-center justify-center"
+              className="px-8 py-3 bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-sm text-white font-medium rounded-full transition-all flex items-center justify-center hover:border-white/30 transform hover:-translate-y-1"
             >
               Explore Our Services
             </a>
@@ -78,7 +78,7 @@ const Hero: React.FC = () => {
                 {Array.from({ length: 20 }).map((_, i) => (
                   <div 
                     key={i}
-                    className="aspect-square rounded bg-white/5 border border-white/10 relative overflow-hidden group"
+                    className="aspect-square rounded bg-white/5 border border-white/10 relative overflow-hidden group hover:bg-white/10 hover:border-primary/30 transition-all duration-300"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="shimmer absolute inset-0" />

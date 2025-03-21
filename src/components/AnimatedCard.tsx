@@ -11,27 +11,7 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({
   children,
   className
 }) => {
-  const [rotation, setRotation] = useState({ x: 0, y: 0 });
-  const [glowPosition, setGlowPosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isHovered) return;
-    
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    const rotateY = (x - centerX) / 20;
-    const rotateX = (centerY - y) / 20;
-    
-    setRotation({ x: rotateX, y: rotateY });
-    setGlowPosition({ x, y });
-  };
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -39,29 +19,24 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    setRotation({ x: 0, y: 0 });
   };
 
   return (
     <div
       className={cn(
-        "relative rounded-2xl bg-card border border-white/5 overflow-hidden transition-transform duration-300 transform-gpu",
+        "relative rounded-2xl bg-card border border-white/5 overflow-hidden transition-all duration-300",
+        isHovered ? "shadow-[0_10px_30px_-10px_rgba(124,58,237,0.3)] scale-[1.02] border-primary/20" : "",
         className
       )}
-      style={{
-        transform: `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
-        transition: 'transform 0.2s ease-out'
-      }}
-      onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {/* Dynamic glow effect */}
       {isHovered && (
         <div 
-          className="absolute inset-0 opacity-70 pointer-events-none"
+          className="absolute inset-0 opacity-80 pointer-events-none"
           style={{
-            background: `radial-gradient(circle at ${glowPosition.x}px ${glowPosition.y}px, rgba(124, 58, 237, 0.15), transparent 40%)`,
+            background: `radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.15), transparent 70%)`,
           }}
         />
       )}

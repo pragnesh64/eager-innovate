@@ -101,7 +101,7 @@ const Services: React.FC = () => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
+            <div className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/20 rounded-2xl p-6 backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-1">
               <div className="bg-primary/10 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
                 <Lightbulb size={24} className="text-primary" />
               </div>
@@ -111,7 +111,7 @@ const Services: React.FC = () => {
               </p>
             </div>
             
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
+            <div className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/20 rounded-2xl p-6 backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-1">
               <div className="bg-primary/10 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
                 <Code size={24} className="text-primary" />
               </div>
@@ -121,7 +121,7 @@ const Services: React.FC = () => {
               </p>
             </div>
             
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
+            <div className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/20 rounded-2xl p-6 backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-1">
               <div className="bg-primary/10 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
                 <BarChart size={24} className="text-primary" />
               </div>

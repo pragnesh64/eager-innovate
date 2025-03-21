@@ -21,6 +21,13 @@ const Navbar: React.FC = () => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+  
   return (
     <header 
       className={cn(
@@ -30,13 +37,17 @@ const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 md:py-5">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <a href="#" className="flex items-center">
-            <div className="h-8 w-8 rounded-full bg-gradient-to-br from-primary to-purple-500 flex items-center justify-center mr-2">
-              <span className="text-white font-bold text-sm">EM</span>
+          {/* Logo with scroll to top functionality */}
+          <button 
+            onClick={scrollToTop} 
+            className="flex items-center group transition-all duration-300 focus:outline-none"
+            aria-label="Scroll to top"
+          >
+            <div className="h-10 w-10 rounded-full bg-gradient-to-br from-primary to-purple-500 flex items-center justify-center mr-3 shadow-glow group-hover:shadow-[0_0_20px_5px_rgba(124,58,237,0.4)] transition-all duration-300">
+              <span className="text-white font-bold text-lg">EM</span>
             </div>
             <span className="text-white font-display text-xl font-bold tracking-tight">Eagerminds</span>
-          </a>
+          </button>
           
           {/* Desktop navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -45,7 +56,7 @@ const Navbar: React.FC = () => {
             <a href="#projects" className="text-sm text-foreground/90 hover:text-white transition-colors">Projects</a>
             <a href="#process" className="text-sm text-foreground/90 hover:text-white transition-colors">Process</a>
             <a href="#team" className="text-sm text-foreground/90 hover:text-white transition-colors">Team</a>
-            <a href="#contact" className="px-5 py-2 bg-primary hover:bg-primary/90 text-white text-sm font-medium rounded-full transition-all shadow-glow">
+            <a href="#contact" className="px-5 py-2 bg-primary hover:bg-primary/80 text-white text-sm font-medium rounded-full transition-all shadow-glow hover:shadow-[0_0_15px_2px_rgba(124,58,237,0.5)] transform hover:-translate-y-0.5">
               Get Started
             </a>
           </nav>
@@ -76,7 +87,7 @@ const Navbar: React.FC = () => {
           <a href="#team" className="text-sm py-2" onClick={() => setIsMenuOpen(false)}>Team</a>
           <a 
             href="#contact" 
-            className="px-4 py-2 bg-primary hover:bg-primary/90 text-white text-sm font-medium rounded-full inline-block text-center w-full"
+            className="px-4 py-2 bg-primary hover:bg-primary/80 text-white text-sm font-medium rounded-full inline-block text-center w-full transition-all hover:shadow-[0_0_15px_2px_rgba(124,58,237,0.4)]"
             onClick={() => setIsMenuOpen(false)}
           >
             Get Started
