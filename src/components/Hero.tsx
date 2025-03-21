@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Brain, ChevronDown, Sparkles, Zap } from 'lucide-react';
+import AnimatedCard from './AnimatedCard';
 
 const Hero: React.FC = () => {
   const elementRef = useRef<HTMLDivElement>(null);
@@ -71,21 +72,60 @@ const Hero: React.FC = () => {
             </a>
           </div>
           
-          {/* Animated tech grid (stylized abstract representation) */}
-          <div className="animate-on-scroll opacity-0 relative h-24 md:h-32 max-w-2xl mx-auto">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="grid grid-cols-5 gap-3 w-full">
-                {Array.from({ length: 20 }).map((_, i) => (
-                  <div 
-                    key={i}
-                    className="aspect-square rounded bg-white/5 border border-white/10 relative overflow-hidden group hover:bg-white/10 hover:border-primary/30 transition-all duration-300"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="shimmer absolute inset-0" />
-                  </div>
-                ))}
+          {/* Featured capabilities cards */}
+          <div className="animate-on-scroll opacity-0 grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <AnimatedCard className="p-6 backdrop-blur-sm">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-4">
+                  <Brain size={24} className="text-primary" />
+                </div>
+                <h3 className="text-lg font-bold mb-2">AI Integration</h3>
+                <p className="text-sm text-foreground/70">Seamlessly connect AI with your existing systems for immediate business impact.</p>
               </div>
+            </AnimatedCard>
+            
+            <AnimatedCard className="p-6 backdrop-blur-sm">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mb-4">
+                  <Sparkles size={24} className="text-purple-500" />
+                </div>
+                <h3 className="text-lg font-bold mb-2">Custom AI Agents</h3>
+                <p className="text-sm text-foreground/70">Build intelligent agents tailored to your unique business requirements.</p>
+              </div>
+            </AnimatedCard>
+            
+            <AnimatedCard className="p-6 backdrop-blur-sm">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
+                  <Zap size={24} className="text-blue-500" />
+                </div>
+                <h3 className="text-lg font-bold mb-2">Process Automation</h3>
+                <p className="text-sm text-foreground/70">Eliminate repetitive tasks and focus your team on high-value activities.</p>
+              </div>
+            </AnimatedCard>
+          </div>
+          
+          {/* Stats section */}
+          <div className="animate-on-scroll opacity-0 grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="flex flex-col items-center">
+              <span className="text-4xl font-bold text-primary mb-2">35%</span>
+              <p className="text-sm text-foreground/70">Average cost reduction</p>
             </div>
+            <div className="flex flex-col items-center">
+              <span className="text-4xl font-bold text-purple-500 mb-2">50%</span>
+              <p className="text-sm text-foreground/70">Increase in productivity</p>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-4xl font-bold text-blue-500 mb-2">40%</span>
+              <p className="text-sm text-foreground/70">Improved customer satisfaction</p>
+            </div>
+          </div>
+          
+          {/* Scroll indicator */}
+          <div className="animate-bounce mt-8 flex justify-center">
+            <a href="#about" className="text-primary opacity-80 hover:opacity-100 transition-opacity">
+              <ChevronDown size={24} />
+            </a>
           </div>
         </div>
       </div>
