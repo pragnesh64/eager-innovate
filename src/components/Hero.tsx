@@ -13,7 +13,6 @@ const Hero: React.FC = () => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate-fade-in');
-            observer.unobserve(entry.target);
           }
         });
       },

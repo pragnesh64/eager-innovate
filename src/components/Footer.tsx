@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
   };
   
   return (
-    <footer className="bg-card border-t border-white/5 py-12">
+    <footer className="bg-card border-t border-white/5 py-12 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-1">
@@ -65,16 +65,17 @@ const Footer: React.FC = () => {
           <p className="text-sm text-foreground/60 mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} Eagerminds. All rights reserved.
           </p>
-          
-          <button 
-            onClick={scrollToTop}
-            className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center transition-colors"
-            aria-label="Scroll to top"
-          >
-            <ArrowUp size={16} />
-          </button>
         </div>
       </div>
+      
+      {/* Scroll to top button - positioned in bottom right corner */}
+      <button 
+        onClick={scrollToTop}
+        className="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-primary hover:bg-primary/90 text-white flex items-center justify-center shadow-glow hover:shadow-[0_0_15px_5px_rgba(124,58,237,0.4)] transition-all z-50"
+        aria-label="Scroll to top"
+      >
+        <ArrowUp size={20} />
+      </button>
     </footer>
   );
 };
